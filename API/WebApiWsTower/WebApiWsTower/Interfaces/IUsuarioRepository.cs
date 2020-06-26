@@ -39,8 +39,7 @@ namespace WebApiWsTower.Interfaces
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="email"></param>
-        /// <param name="apelido"></param>
+        /// <param name="usuario"></param>
         /// <param name="senha"></param>
         /// <returns></returns>
         int ValidarLogin(string usuario, string senha);

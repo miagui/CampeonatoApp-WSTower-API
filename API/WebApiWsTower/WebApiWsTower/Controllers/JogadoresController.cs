@@ -38,6 +38,8 @@ namespace WebApiWsTower.Controllers
         /// <param name="nomeJogador"> Nome do Jogador ou palavra-chave que será buscado </param>
         /// <returns> O Jogador ou Jogadores os Jogadores buscados </returns>
         [HttpGet("{nomeJogador}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
         public IActionResult BuscarPorNome(string nomeJogador)
         {
             try
@@ -58,6 +60,8 @@ namespace WebApiWsTower.Controllers
         /// <param name="nomeSelecao"> Nome da Seleção ou palavra-chave que será buscada </param>
         /// <returns></returns>
         [HttpGet("Selecoes/{nomeSelecao}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
         public IActionResult BuscarPorSelecao(string nomeSelecao)
         {
             try

@@ -46,11 +46,13 @@ namespace WebApiWsTower.Controllers
         /// <param name="login"> Objeto login que contém o e-mail e a senha do usuário </param>
         /// <returns> Retorna uma mensagem de Sucesso ou Inválido </returns>
         [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public IActionResult Post(LoginViewModel login)
         {
             int resultado = _usuarioRepository.ValidarLogin(login.Usuario, login.Senha);
 
-            if (resultado == (int)Message.SUCESSO) return Ok();
+            if (resultado == (int)Message.SUCESSO) return Ok("Sucesso");
             else if (resultado == (int)Message.SENHA_INVALIDA) return NotFound("Senha Inválida");
             else if (resultado == (int)Message.USUARIO_INVALIDO) return NotFound("Usuário Inválido");
             return NotFound();

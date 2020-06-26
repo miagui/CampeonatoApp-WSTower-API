@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.Swagger.Annotations;
 using WebApiWsTower.Domains;
 using WebApiWsTower.Interfaces;
 using WebApiWsTower.Repositories;
@@ -42,7 +44,13 @@ namespace WebApiWsTower.Controllers
         /// </summary>
         /// <param name="id"> ID do Usuário que será buscado </param>
         /// <returns> O Usuário buscado </returns>
+        /// <response code="200">OK</response>
+        /// <response code="400">Dados inválidos.</response>
+        /// <response code="404">Não encontrado</response>
         [HttpGet("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         public IActionResult GetById(int id)
         {
             try
@@ -73,6 +81,8 @@ namespace WebApiWsTower.Controllers
         /// <param name="novoUsuario"> Objeto com as informações de Cadastro </param>
         /// <returns> Status code 201 - Created</returns>
         [HttpPost]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(404)]
         public IActionResult Post(Usuario novoUsuario)
         {
             try
@@ -97,6 +107,8 @@ namespace WebApiWsTower.Controllers
         /// <param name="senha"> Senha que passará a ser a nova senha do Usuário </param>
         /// <returns> OK </returns>
         [HttpPut("{id}&senha={senha}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
         public IActionResult Put(int id, string senha)
         {
             try
@@ -121,6 +133,9 @@ namespace WebApiWsTower.Controllers
         /// <param name="usuarioAtualizado"> Objeto com as novas informações </param>
         /// <returns>Status code 204 - No Content </returns>
         [HttpPatch("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         public IActionResult Put(int id, Usuario usuarioAtualizado)
         {
             try

@@ -42,6 +42,8 @@ namespace WebApiWsTower.Controllers
         /// </summary>
         /// <returns> Uma lista de Seleções </returns>
         [HttpGet]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
         public IActionResult Get()
         {
             try

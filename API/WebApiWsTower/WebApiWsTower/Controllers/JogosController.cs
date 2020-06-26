@@ -44,6 +44,9 @@ namespace WebApiWsTower.Controllers
         /// <param name="id"> ID do Jogo que será buscado </param>
         /// <returns> O Jogo buscado </returns>
         [HttpGet("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         public IActionResult GetById(int id)
         {
             try
@@ -74,6 +77,8 @@ namespace WebApiWsTower.Controllers
         /// <param name="data"> A Data pelo qual o Jogo vai ser buscado </param>
         /// <returns> O Jogo pela data buscada </returns>
         [HttpGet("Data/{data}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
         public IActionResult ListarPorData(DateTime data)
         {
             try
@@ -94,6 +99,8 @@ namespace WebApiWsTower.Controllers
         /// <param name="estadio"> Nome do Estádio pelo qual o Jogo vai ser buscado </param>
         /// <returns> O Jogo com o Estádio buscado </returns>
         [HttpGet("Estadios/{estadio}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
         public IActionResult ListarPorEstadios(string estadio)
         {
             try
@@ -114,6 +121,8 @@ namespace WebApiWsTower.Controllers
         /// <param name="buscaSelecao"> Nome da Seleção que será buscada </param>
         /// <returns> O Jogo pela Seleção buscada </returns>
         [HttpGet("Selecoes/{buscaSelecao}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
         public IActionResult ListarPorSelecao(string buscaSelecao)
         {
             try

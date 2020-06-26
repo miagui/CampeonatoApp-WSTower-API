@@ -140,6 +140,9 @@
             </summary>
             <param name="id"> ID do Usuário que será buscado </param>
             <returns> O Usuário buscado </returns>
+            <response code="200">OK</response>
+            <response code="400">Dados inválidos.</response>
+            <response code="404">Não encontrado</response>
         </member>
         <member name="M:WebApiWsTower.Controllers.UsuariosController.Post(WebApiWsTower.Domains.Usuario)">
             <summary>
@@ -247,8 +250,7 @@
             <summary>
             
             </summary>
-            <param name="email"></param>
-            <param name="apelido"></param>
+            <param name="usuario"></param>
             <param name="senha"></param>
             <returns></returns>
         </member>
