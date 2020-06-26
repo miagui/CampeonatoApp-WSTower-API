@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApiWsTower</name>
+    </assembly>
+    <members>
+        <member name="T:WebApiWsTower.Controllers.JogadoresController">
+            <summary>
+            Controller responsável pelos endpoints referentes aos Jogadores
+            </summary>
+        </member>
+        <member name="F:WebApiWsTower.Controllers.JogadoresController._jogadorRepository">
+            <summary>
+            Cria um objeto _jogadorRepository que irá receber todos os métodos definidos na interface
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.JogadoresController.#ctor">
+            <summary>
+            Instancia este objeto para que haja a referência aos métodos no repositório
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.JogadoresController.BuscarPorNome(System.String)">
+            <summary>
+            Busca um Jogador pelo Nome ou palavra-chave
+            </summary>
+            <param name="nomeJogador"> Nome do Jogador ou palavra-chave que será buscado </param>
+            <returns> O Jogador ou Jogadores os Jogadores buscados </returns>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.JogadoresController.BuscarPorSelecao(System.String)">
+            <summary>
+            Busca uma Seleção pelo nome ou palavra-chave
+            </summary>
+            <param name="nomeSelecao"> Nome da Seleção ou palavra-chave que será buscada </param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApiWsTower.Controllers.JogosController">
+            <summary>
+            Controller responsável pelos endpoints referentes aos Jogos
+            </summary>
+        </member>
+        <member name="F:WebApiWsTower.Controllers.JogosController._jogoRepository">
+            <summary>
+            Cria um objeto _jogoRepository que irá receber todos os métodos definidos na interface
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.JogosController.#ctor">
+            <summary>
+            Instancia este objeto para que haja a referência aos métodos no repositório
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.JogosController.GetById(System.Int32)">
+            <summary>
+            Busca um Jogo pelo ID
+            </summary>
+            <param name="id"> ID do Jogo que será buscado </param>
+            <returns> O Jogo buscado </returns>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.JogosController.ListarPorData(System.DateTime)">
+            <summary>
+            Busca um Jogo pela Data Exemplo: {{URL}}api/Jogos/Data/2020-04-10
+            </summary>
+            <param name="data"> A Data pelo qual o Jogo vai ser buscado </param>
+            <returns> O Jogo pela data buscada </returns>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.JogosController.ListarPorEstadios(System.String)">
+            <summary>
+            Busca um Jogo pelo Estádio
+            </summary>
+            <param name="estadio"> Nome do Estádio pelo qual o Jogo vai ser buscado </param>
+            <returns> O Jogo com o Estádio buscado </returns>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.JogosController.ListarPorSelecao(System.String)">
+            <summary>
+            Busca um Jogo pela Seleção
+            </summary>
+            <param name="buscaSelecao"> Nome da Seleção que será buscada </param>
+            <returns> O Jogo pela Seleção buscada </returns>
+        </member>
+        <member name="T:WebApiWsTower.Controllers.LoginController">
+            <summary>
+            Controller responsável pelos endpoints referentes ao Login
+            </summary>
+        </member>
+        <member name="P:WebApiWsTower.Controllers.LoginController._usuarioRepository">
+            <summary>
+            Cria um objeto _usuarioRepository que irá receber todos os métodos definidos na interface
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.LoginController.#ctor">
+            <summary>
+            Instancia este objeto para que haja a referência aos métodos no repositório
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.LoginController.Post(WebApiWsTower.ViewModels.LoginViewModel)">
+            <summary>
+            Valida o Usuário
+            </summary>
+            <param name="login"> Objeto login que contém o e-mail e a senha do usuário </param>
+            <returns> Retorna uma mensagem de Sucesso ou Inválido </returns>
+        </member>
+        <member name="T:WebApiWsTower.Controllers.SelecaoController">
+            <summary>
+            Controller responsável pelo endpoint referentes a Seleção
+            </summary>
+        </member>
+        <member name="F:WebApiWsTower.Controllers.SelecaoController._selecaoRepository">
+            <summary>
+            Cria um objeto _selecaoRepository que irá receber todos os métodos definidos na interface
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.SelecaoController.#ctor">
+            <summary>
+            Instancia este objeto para que haja a referência aos métodos no repositório
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.SelecaoController.Get">
+            <summary>
+            Lista todas as Seleções
+            </summary>
+            <returns> Uma lista de Seleções </returns>
+        </member>
+        <member name="T:WebApiWsTower.Controllers.UsuariosController">
+            <summary>
+            Controller responsável pelos endpoints referentes aos Usuários
+            </summary>
+        </member>
+        <member name="P:WebApiWsTower.Controllers.UsuariosController._usuarioRepository">
+            <summary>
+            Cria um objeto _usuarioRepository que irá receber todos os métodos definidos na interface
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.UsuariosController.#ctor">
+            <summary>
+            Instancia este objeto para que haja a referência aos métodos no repositório
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.UsuariosController.GetById(System.Int32)">
+            <summary>
+            Busca um Usuário pelo ID
+            </summary>
+            <param name="id"> ID do Usuário que será buscado </param>
+            <returns> O Usuário buscado </returns>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.UsuariosController.Post(WebApiWsTower.Domains.Usuario)">
+            <summary>
+            Cadastra um novo Usuário no sistema
+            </summary>
+            <param name="novoUsuario"> Objeto com as informações de Cadastro </param>
+            <returns> Status code 201 - Created</returns>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.UsuariosController.Put(System.Int32,System.String)">
+            <summary>
+            Altera a Senha de Usuário Exemplo: {{URL}}api/Usuarios/2esenha=1234
+            </summary>
+            <param name="id"> ID do Usuário que será buscado </param>
+            <param name="senha"> Senha que passará a ser a nova senha do Usuário </param>
+            <returns> OK </returns>
+        </member>
+        <member name="M:WebApiWsTower.Controllers.UsuariosController.Put(System.Int32,WebApiWsTower.Domains.Usuario)">
+            <summary>
+            Altera um Usuário existente
+            </summary>
+            <param name="id"> ID do Usuário que será atualizado </param>
+            <param name="usuarioAtualizado"> Objeto com as novas informações </param>
+            <returns>Status code 204 - No Content </returns>
+        </member>
+        <member name="T:WebApiWsTower.Interfaces.IJogadorRepository">
+            <summary>
+            Interface responsável pelo JogadorRepository
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.IJogadorRepository.BuscarPorNome(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="nomeJogador"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.IJogadorRepository.BuscarPorSelecao(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="nomeSelecao"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApiWsTower.Interfaces.IJogoRepository">
+            <summary>
+            Interface responsável pelo JogoRepository
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.IJogoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um Jogo pelo ID
+            </summary>
+            <param name="id"> ID do Jogo que será buscado </param>
+            <returns> O Jogo buscado </returns>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.IJogoRepository.ListarPorSelecao(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="buscaSelecao"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApiWsTower.Interfaces.ISelecaoRepository">
+            <summary>
+            Interface responsável pelo SelecaoRepository
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.ISelecaoRepository.Listar">
+            <summary>
+            Lista todas as Seleções
+            </summary>
+            <returns> Uma lista de Seleções </returns>
+        </member>
+        <member name="T:WebApiWsTower.Interfaces.IUsuarioRepository">
+            <summary>
+            Interface responsável pelo UsuarioRepository
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.IUsuarioRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um Usuário pelo ID
+            </summary>
+            <param name="id"> ID do Usuário que será buscado</param>
+            <returns> O Usuário buscado </returns>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.IUsuarioRepository.Cadastrar(WebApiWsTower.Domains.Usuario)">
+            <summary>
+            Cadastra um novo Usuário no sistema
+            </summary>
+            <param name="novoUsuario"> Objeto com as informações de Cadastro </param>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.IUsuarioRepository.Atualizar(System.Int32,WebApiWsTower.Domains.Usuario)">
+            <summary>
+            Altera um Usuário existente
+            </summary>
+            <param name="id"> ID do Usuário que será atualizado </param>
+            <param name="usuarioAtualizado"> Objeto com as novas informações </param>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.IUsuarioRepository.AlterarSenha(System.Int32,System.String)">
+            <summary>
+            Alterar a Senha de Usuário
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Interfaces.IUsuarioRepository.ValidarLogin(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <param name="apelido"></param>
+            <param name="senha"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApiWsTower.Repositories.JogadorRepository">
+            <summary>
+            Repositório responsável pelos Jogadores
+            </summary>
+        </member>
+        <member name="T:WebApiWsTower.Repositories.JogoRepository">
+            <summary>
+            Repositório responsável pelos Jogos
+            </summary>
+        </member>
+        <member name="F:WebApiWsTower.Repositories.JogoRepository.ctx">
+            <summary>
+            Objeto contexto por onde serão chamados os métodos do Entity Framework
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Repositories.JogoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um Jogo pelo ID
+            </summary>
+            <param name="id"> ID do Jogo que será buscado </param>
+            <returns> O Jogo buscado </returns>
+        </member>
+        <member name="T:WebApiWsTower.Repositories.SelecaoRepository">
+            <summary>
+            Repositório responsável pelas Seleções
+            </summary>
+        </member>
+        <member name="M:WebApiWsTower.Repositories.SelecaoRepository.Listar">
+            <summary>
+            Lista as informações das Seleções
+            </summary>
+            <returns> Uma lista de Seleções</returns>
+        </member>
+        <member name="T:WebApiWsTower.Repositories.UsuarioRepository">
+            <summary>
+            Repositório responsável pelos Usuários
+            </summary>
+        </member>
+        <member name="F:WebApiWsTower.Repositories.UsuarioRepository.ctx">
+            <summary>
+            Objeto contexto por onde serão chamados os métodos do EF Core
+            </summary>
+        </member>
+    </members>
+</doc>

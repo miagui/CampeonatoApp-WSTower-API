@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "4a797c5e-c2be-4db4-8501-c30dd229c716",
+		"name": "WebApiWsTower",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Jogos",
+			"item": [
+				{
+					"name": "Listar por Seleção",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Jogos/Selecoes/Arg",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Jogos",
+								"Selecoes",
+								"Arg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar por Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Jogos/Data/2020-04-10",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Jogos",
+								"Data",
+								"2020-04-10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar por Estádios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Jogos/Estadios/ber",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Jogos",
+								"Estadios",
+								"ber"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Jogos/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Jogos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Seleções",
+			"item": [
+				{
+					"name": "Listar Seleções",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Selecao",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Selecao"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Usuarios/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": \"pedrinho\",\n\t\"senha\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"pedro\",\r\n    \"Email\" : \"pedro@gmail.com\",\r\n    \"Apelido\" : \"pedrinho\",\r\n    \"Senha\" : \"123\",\r\n    \"Foto\" : null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Usuarios",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Senha",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Usuarios/2&senha=1234",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Usuarios",
+								"2&senha=1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Dados",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\": \"Matheus\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Usuarios/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Usuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Jogadores",
+			"item": [
+				{
+					"name": "Buscar por Nome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Jogadores/Messi",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Jogadores",
+								"Messi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por Selecao",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Jogadores/Selecoes/Arg",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Jogadores",
+								"Selecoes",
+								"Arg"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
