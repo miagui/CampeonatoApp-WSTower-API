@@ -191,6 +191,12 @@
             Interface responsável pelo JogoRepository
             </summary>
         </member>
+        <member name="M:WebApiWsTower.Interfaces.IJogoRepository.Listar">
+            <summary>
+            Busca todos jogos
+            </summary>
+            <returns> Lista de jogos </returns>
+        </member>
         <member name="M:WebApiWsTower.Interfaces.IJogoRepository.BuscarPorId(System.Int32)">
             <summary>
             Busca um Jogo pelo ID
@@ -200,7 +206,7 @@
         </member>
         <member name="M:WebApiWsTower.Interfaces.IJogoRepository.ListarPorSelecao(System.String)">
             <summary>
-            
+            Busca por Seleção
             </summary>
             <param name="buscaSelecao"></param>
             <returns></returns>

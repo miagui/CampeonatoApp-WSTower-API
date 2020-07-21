@@ -27,7 +27,7 @@ namespace WebApiWsTower.Contexts
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 //optionsBuilder.UseSqlServer("Data Source=DESKTOP-BEVTDEI\\TSQLEXPRESS; Initial Catalog=Campeonato; user Id=sa; pwd=sa@123;");
-                optionsBuilder.UseSqlServer("Server=localhost; Initial Catalog=Campeonato;Integrated Security=SSPI;Persist Security Info=False");
+                optionsBuilder.UseSqlServer("Server=localhost; Initial Catalog=Campeonato_App_Grupo4;Integrated Security=SSPI;Persist Security Info=False");
             }
         }
 

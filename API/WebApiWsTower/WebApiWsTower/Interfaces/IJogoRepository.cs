@@ -12,6 +12,11 @@ namespace WebApiWsTower.Interfaces
     interface IJogoRepository
     {
         /// <summary>
+        /// Busca todos jogos
+        /// </summary>
+        /// <returns> Lista de jogos </returns>
+        List<Jogo> Listar();
+        /// <summary>
         /// Busca um Jogo pelo ID
         /// </summary>
         /// <param name="id"> ID do Jogo que será buscado </param>
@@ -19,7 +24,7 @@ namespace WebApiWsTower.Interfaces
         Jogo BuscarPorId(int id);
 
         /// <summary>
-        /// 
+        /// Busca por Seleção
         /// </summary>
         /// <param name="buscaSelecao"></param>
         /// <returns></returns>

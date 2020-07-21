@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using WebApiWsTower.Domains;
 using WebApiWsTower.Enum;
 using WebApiWsTower.Interfaces;
@@ -50,12 +53,61 @@ namespace WebApiWsTower.Controllers
         [ProducesResponseType(404)]
         public IActionResult Post(LoginViewModel login)
         {
-            int resultado = _usuarioRepository.ValidarLogin(login.Usuario, login.Senha);
+            try
+            {
+                // Busca o usuário pelo e-mail e senha
+                Usuario usuarioBuscado = _usuarioRepository.ValidarLogin(login.Usuario, login.Senha);
 
-            if (resultado == (int)Message.SUCESSO) return Ok("Sucesso");
-            else if (resultado == (int)Message.SENHA_INVALIDA) return NotFound("Senha Inválida");
-            else if (resultado == (int)Message.USUARIO_INVALIDO) return NotFound("Usuário Inválido");
-            return NotFound();
+                if (usuarioBuscado == null)
+                {
+                    return NoContent();
+                }
+                
+
+                var claims = new[]
+                {
+                    // Armazena na Claim o e-mail do usuário autenticado
+                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
+
+                     // Armazena na Claim o apelido do usuário autenticado
+                    new Claim(JwtRegisteredClaimNames.GivenName, usuarioBuscado.Apelido),
+
+                    // Armazena na Claim o ID do usuário autenticado
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.Id.ToString()),
+                };
+
+                // Define a chave de acesso ao token
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("WsTower-chave-autenticacao"));
+
+                // Define as credenciais do token - Header
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                // Gera o token
+                var token = new JwtSecurityToken(
+                    issuer: "WebApiWsTower",                 // emissor do token
+                    audience: "WebApiWsTower",               // destinatário do token
+                    claims: claims,                        // dados definidos acima
+                    expires: DateTime.Now.AddMinutes(30),  // tempo de expiração
+                    signingCredentials: creds              // credenciais do token
+                );
+
+                // Retorna Ok com o token
+                return Ok(new
+                {
+                    token = new JwtSecurityTokenHandler().WriteToken(token)
+                });
+
+            }
+
+            catch (Exception e)
+            {
+                // Retorna a resposta da requisição 400 - Bad Request e o erro ocorrido com uma mensagem personalizada
+                return BadRequest(new
+                {
+                    mensagem = "Não foi possível gerar o token",
+                    e
+                });
+            }
         }
     }
 }

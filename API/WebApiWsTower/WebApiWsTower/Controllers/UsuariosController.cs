@@ -87,11 +87,20 @@ namespace WebApiWsTower.Controllers
         {
             try
             {
-                // Faz a chamada para o método
-                _usuarioRepository.Cadastrar(novoUsuario);
+                if (_usuarioRepository.ValidarCadastro(novoUsuario) == false)
+                {
+                    // Faz a chamada para o método
+                    _usuarioRepository.Cadastrar(novoUsuario);
+                    // Retora a resposta da requisição 201 - Created
+                    return StatusCode(201);
+                }
 
-                // Retora a resposta da requisição 201 - Created
-                return StatusCode(201);
+                else
+                {
+                    return StatusCode(406);
+                }               
+                              
+                
             }
             catch (Exception error)
             {

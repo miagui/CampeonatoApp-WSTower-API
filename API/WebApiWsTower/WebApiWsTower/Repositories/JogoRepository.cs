@@ -19,6 +19,14 @@ namespace WebApiWsTower.Repositories
         /// </summary>
         CampeonatoContext ctx = new CampeonatoContext(); 
 
+        public List<Jogo> Listar()
+        {
+            return ctx.Jogo
+                .Include(j => j.SelecaoCasaNavigation)
+                .Include(j => j.SelecaoVisitanteNavigation)
+                .ToList();
+        }
+
         /// <summary>
         /// Busca um Jogo pelo ID
         /// </summary>

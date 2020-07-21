@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using WebApiWsTower.Contexts;
 using WebApiWsTower.Domains;
@@ -94,56 +96,72 @@ namespace WebApiWsTower.Repositories
             ctx.SaveChanges();
         }
 
+
+        public bool ValidarCadastro (Usuario usuario)
+        {
+            Usuario usuarioBuscadoApelido = ctx.Usuario.FirstOrDefault(u => u.Apelido == usuario.Apelido);
+            Usuario usuarioBuscadoEmail = ctx.Usuario.FirstOrDefault(u => u.Email == usuario.Email);
+
+            if (usuarioBuscadoApelido == null)
+            {
+                if(usuarioBuscadoEmail == null)
+                {
+                    return false;
+                }
+
+                return false;
+            }
+
+            return true;
+        }
+        
+
+
         // TODO: Testar
-        public int ValidarLogin(string usuario, string senha)
+        public Usuario ValidarLogin(string usuario, string senha)
         {
             var emailValidator = new EmailAddressAttribute();
 
             // Se for um email.
             if (emailValidator.IsValid(usuario))
             {
-                Usuario u = ctx.Usuario.FirstOrDefault(u => u.Email == usuario);
-                if (u != null)
+                Usuario usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.Email == usuario);
+                if (usuarioBuscado != null)
                 {
-                    if (u.Senha == senha)
+                    if (usuarioBuscado.Senha == senha)
                     {
                         // Retorna 2 = Login validado.
-                        return (int)Message.SUCESSO;
+                        return usuarioBuscado;
                     }
                     else
                     {
-                        // Retorna 1 = Senha incorreta.
-                        return (int)Message.SENHA_INVALIDA;
+                        return null;
                     }
                 }
                 else
                 {
-                    // Retorna 0 = Email ou apelido não encontrado.
-                    return (int)Message.USUARIO_INVALIDO;
+                    return null;
                 }
             }
             // Se for um apelido.
             else
             {
-                Usuario u = ctx.Usuario.FirstOrDefault(u => u.Apelido == usuario);
+                Usuario usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.Apelido == usuario);
 
-                if (u != null)
+                if (usuarioBuscado != null)
                 {
-                    if (u.Senha == senha)
+                    if (usuarioBuscado.Senha == senha)
                     {
-                        // Retorna 2 = Login validado.
-                        return (int)Message.SUCESSO;
+                        return usuarioBuscado;
                     }
                     else
                     {
-                        // Retorna 1 = Senha incorreta.
-                        return (int)Message.SENHA_INVALIDA;
+                        return null;
                     }
                 }
                 else
                 {
-                    // Retorna 0 = Email ou apelido não encontrado.
-                    return (int)Message.USUARIO_INVALIDO;
+                    return null;
                 }
             }
         }

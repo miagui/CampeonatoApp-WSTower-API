@@ -38,6 +38,22 @@ namespace WebApiWsTower.Controllers
             _jogoRepository = new JogoRepository();
         }
 
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public IActionResult Get()
+        {
+            try
+            {
+                var jogos = _jogoRepository.Listar();
+                return Ok(jogos);
+            }
+            catch (Exception error)
+            {
+                // Retorna a resposta da requisição 400 - Bad Request e o erro ocorrido
+                return BadRequest(error);
+            }
+        }
         /// <summary>
         /// Busca um Jogo pelo ID
         /// </summary>
