@@ -17,6 +17,11 @@ namespace WebApiWsTower.Repositories
         // Objeto contexto por onde serão chamados os métodos do Entity Framework
         CampeonatoContext ctx = new CampeonatoContext();
 
+        public List<Jogador> Listar()
+        {
+            return ctx.Jogador.ToList();
+        }
+
         public List<Jogador> BuscarPorNome(string nomeJogador)
         {
             return ctx.Jogador.Where(j => j.Nome.ToUpper().Contains(nomeJogador.ToUpper())).ToList();

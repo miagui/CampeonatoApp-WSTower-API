@@ -24,5 +24,6 @@ namespace WebApiWsTower.Interfaces
         /// <param name="nomeSelecao"></param>
         /// <returns></returns>
         List<Jogador> BuscarPorSelecao(string nomeSelecao);
+        List<Jogador> Listar();
     }
 }

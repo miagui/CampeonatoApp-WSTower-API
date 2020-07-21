@@ -31,6 +31,26 @@ namespace WebApiWsTower.Controllers
         {
             _jogadorRepository = new JogadorRepository();
         }
+        /// <summary>
+        /// Busca lista de jogadores.
+        /// </summary>
+        /// <returns> O Jogador ou Jogadores os Jogadores buscados </returns>
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public IActionResult ListarTodos()
+        {
+            try
+            {
+                // Retora a resposta da requisição 200 - OK fazendo a chamada para o método e trazendo o Jogador ou Jogadores buscados
+                return Ok(_jogadorRepository.Listar());
+            }
+            catch (Exception error)
+            {
+                // Retorna a resposta da requisição 400 - Bad Request e o erro ocorrido
+                return BadRequest(error);
+            }
+        }
 
         /// <summary>
         /// Busca um Jogador pelo Nome ou palavra-chave

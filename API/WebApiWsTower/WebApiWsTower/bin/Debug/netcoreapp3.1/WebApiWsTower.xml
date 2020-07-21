@@ -19,6 +19,12 @@
             Instancia este objeto para que haja a referência aos métodos no repositório
             </summary>
         </member>
+        <member name="M:WebApiWsTower.Controllers.JogadoresController.ListarTodos">
+            <summary>
+            Busca lista de jogadores.
+            </summary>
+            <returns> O Jogador ou Jogadores os Jogadores buscados </returns>
+        </member>
         <member name="M:WebApiWsTower.Controllers.JogadoresController.BuscarPorNome(System.String)">
             <summary>
             Busca um Jogador pelo Nome ou palavra-chave
