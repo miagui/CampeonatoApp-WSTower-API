@@ -19,7 +19,8 @@ namespace WebApiWsTower.Repositories
 
         public List<Jogador> Listar()
         {
-            return ctx.Jogador.ToList();
+            return ctx.Jogador.Include(j => j.Selecao)
+                .AsNoTracking().ToList();
         }
 
         public List<Jogador> BuscarPorNome(string nomeJogador)

@@ -22,8 +22,10 @@ namespace WebApiWsTower.Repositories
         public List<Jogo> Listar()
         {
             return ctx.Jogo
-                .Include(j => j.SelecaoCasaNavigation)
-                .Include(j => j.SelecaoVisitanteNavigation)
+                .Include(j => j.SelecaoCasaNavigation).AsNoTracking()
+                .Include(j => j.SelecaoVisitanteNavigation).AsNoTracking()
+                .Include(j => j.SelecaoCasaNavigation.Jogador).AsNoTracking()
+                .Include(j => j.SelecaoVisitanteNavigation.Jogador).AsNoTracking()
                 .ToList();
         }
 
