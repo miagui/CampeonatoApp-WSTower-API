@@ -164,6 +164,12 @@ namespace WebApiWsTower.Repositories
                     return null;
                 }
             }
+
+            
         }
+        //public void EditarFoto(int id, Usuario usuario)
+        //{
+        //    ctx.Usuario.
+        //}
     }
 }

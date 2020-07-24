@@ -25,5 +25,6 @@ namespace WebApiWsTower.Interfaces
         /// <returns></returns>
         List<Jogador> BuscarPorSelecao(string nomeSelecao);
         List<Jogador> Listar();
+        void Atualizar(int id, Jogador jogadorAtualizado);
     }
 }

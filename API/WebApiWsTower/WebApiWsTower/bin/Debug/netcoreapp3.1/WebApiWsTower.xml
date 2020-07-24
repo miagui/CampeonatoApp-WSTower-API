@@ -39,6 +39,13 @@
             <param name="nomeSelecao"> Nome da Seleção ou palavra-chave que será buscada </param>
             <returns></returns>
         </member>
+        <member name="M:WebApiWsTower.Controllers.JogadoresController.AtualizarPorId(System.Int32,WebApiWsTower.Domains.Jogador)">
+            <summary>
+            Atualiza o jogador por id.
+            </summary>
+            <param name="id"> Id do jogador </param>
+            <returns></returns>
+        </member>
         <member name="T:WebApiWsTower.Controllers.JogosController">
             <summary>
             Controller responsável pelos endpoints referentes aos Jogos

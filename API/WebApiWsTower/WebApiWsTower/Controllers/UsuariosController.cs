@@ -141,7 +141,7 @@ namespace WebApiWsTower.Controllers
         /// <param name="id"> ID do Usuário que será atualizado </param>
         /// <param name="usuarioAtualizado"> Objeto com as novas informações </param>
         /// <returns>Status code 204 - No Content </returns>
-        [HttpPatch("{id}")]
+        [HttpPut("{id}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

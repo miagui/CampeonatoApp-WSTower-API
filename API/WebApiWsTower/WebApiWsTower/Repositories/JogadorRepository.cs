@@ -36,5 +36,22 @@ namespace WebApiWsTower.Repositories
             return ctx.Jogador.Include(j => j.Selecao )
                 .Where(j => j.Selecao.Nome.ToUpper().Contains(nomeSelecao.ToUpper())).AsNoTracking().ToList();
         }
+
+        public void Atualizar(int id, Jogador jogadorAtualizado)
+        {
+            Jogador jogadorBuscado = ctx.Jogador.Find(id);
+
+            if (jogadorBuscado != null)
+            {
+                if (jogadorAtualizado.Foto != null)
+                {
+                    jogadorBuscado.Foto = jogadorAtualizado.Foto;
+                }
+
+                ctx.SaveChanges();
+            }
+        }
+
+
     }
 }

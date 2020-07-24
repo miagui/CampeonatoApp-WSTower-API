@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using WebApiWsTower.Domains;
 using WebApiWsTower.Interfaces;
 using WebApiWsTower.Repositories;
 
@@ -90,6 +91,29 @@ namespace WebApiWsTower.Controllers
                 return Ok(_jogadorRepository.BuscarPorSelecao(nomeSelecao));
             }
             catch ( Exception error)
+            {
+                // Retorna a resposta da requisição 400 - Bad Request e o erro ocorrido
+                return BadRequest(error);
+            }
+        }
+
+        /// <summary>
+        /// Atualiza o jogador por id.
+        /// </summary>
+        /// <param name="id"> Id do jogador </param>
+        /// <returns></returns>
+        [HttpPut("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult AtualizarPorId(int id, Jogador jogadorAtualizado)
+        {
+            try
+            {
+                // Retora a resposta da requisição 200 - OK fazendo a chamada para o método e trazendo a Seleção ou Seleções buscadas
+                _jogadorRepository.Atualizar(id, jogadorAtualizado);
+                return NoContent();
+            }
+            catch (Exception error)
             {
                 // Retorna a resposta da requisição 400 - Bad Request e o erro ocorrido
                 return BadRequest(error);
